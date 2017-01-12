@@ -1,0 +1,17 @@
+#JSGF V1.7;
+grammar sentence;
+ 
+public <sentence> =
+[<dato0>]
+[<dato1>]
+[<dato2>]
+[<dato3>]
+[<dato4>]
+[<dato5>];
+ 
+<dato0>=Siri;
+<dato1>=cerrar;
+<dato2>=Abrir Ventana; 
+<dato3>=Encender Luz;
+<dato4>=apagar;
+<dato5>=Salir;

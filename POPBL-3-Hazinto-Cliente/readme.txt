@@ -1,0 +1,2 @@
+Esta aplicación es la aplicación que se instala en la casa de cliente y realiza mediante socket y hilos 
+comunicación con la aplicacion servidora y poner en funcionamiento los dispositivos en el hogar.

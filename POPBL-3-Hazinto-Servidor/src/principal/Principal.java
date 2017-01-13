@@ -1,4 +1,4 @@
-package Principal;
+package principal;
 
 import com.sun.corba.se.spi.activation.Server;
 import java.io.IOException;
@@ -32,6 +32,7 @@ public class Principal {
 			server = new ServerSocket(5500);
 
 			while (true) {
+				System.out.println("ESPERANDO CLIENTE");
 				Socket c = (Socket) server.accept();
 
 				Hilo hilo = new Hilo(c);

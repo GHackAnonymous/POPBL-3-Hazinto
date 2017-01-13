@@ -7,6 +7,8 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+
 /**
 *
 * @author Eder Gomez de segura <eder.gomezp@alumni.mondragon.edu>
@@ -39,13 +41,13 @@ public class Conexion extends Thread{
     public void run(){
         try{
             try {
-
+            	System.out.println("Relaizando conexion");
                  socket = new Socket("127.0.0.1",5500);
 
                  out = new ObjectOutputStream(socket.getOutputStream());
                  in = new ObjectInputStream(socket.getInputStream());
                  
-                 
+                 System.out.println("conexion realizada");
                  do{
                     //sleep(10000);
                     if(!this.vc.getComando().equalsIgnoreCase("")){

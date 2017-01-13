@@ -36,7 +36,7 @@ public class Voz extends ResultAdapter {
           for (int i=0; i < tokens.size(); i++){
             gst = tokens.get(i).getSpokenText();
             if(tokens.size() == 1){
-                if(gst.equalsIgnoreCase("Siri")){
+                if(gst.equalsIgnoreCase("Hacinto")){
                     activo = true;
                 }else if(gst.equalsIgnoreCase("cerrar")){
                    activo = false;
@@ -85,7 +85,7 @@ public class Voz extends ResultAdapter {
            recognizer = Central.createRecognizer(new EngineModeDesc(Locale.ROOT));
            recognizer.allocate();
 
-           FileReader grammar1 =new FileReader("SimpleGrammarES2.txt");
+           FileReader grammar1 =new FileReader("files/gramatica/gramticaFile.txt");
 
            RuleGrammar rg = recognizer.loadJSGF(grammar1);
            rg.setEnabled(true);

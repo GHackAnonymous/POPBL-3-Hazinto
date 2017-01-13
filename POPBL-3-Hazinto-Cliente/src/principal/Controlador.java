@@ -17,6 +17,7 @@ public class Controlador {
     public Controlador(VariablesComunes vc){
         this.vc = vc;
         conexion = new Conexion(this, this.vc);
+        conexion.start();
         hiloVoz = new HiloVoz(this, this.vc);
     }
 }

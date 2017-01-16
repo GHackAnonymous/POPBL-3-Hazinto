@@ -107,12 +107,6 @@ public class Vista  implements ActionListener{
 					
 					ventana.getContentPane().add(crearPanelCentral());
 					
-					/*DefaultTableModel modelo=(DefaultTableModel) vTabla.getModel(); 
-					
-					modelo.addRow(crearArray(listaLogs));
-					vTabla.setModel(modelo); 
-					*/
-					
 					vTabla.repaint();
 					vTabla.revalidate();
 					vTabla.repaint();
@@ -128,10 +122,8 @@ public class Vista  implements ActionListener{
 		
 	}
 	private Component crearPanelCentral() {
-		//Tabla dentro de un scroll panel
 		
 		vTabla = new JTable(crearArray(listaLogs),NOMBRE_COLUMNAS);
-		//vTabla.setFillsViewportHeight(true);
 		JScrollPane panel = new JScrollPane(vTabla,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
@@ -143,13 +135,6 @@ public class Vista  implements ActionListener{
 		for (Log log: tabla){
 			datos[i] = log.toArray();
 			i++;
-		}
-		
-		for(int e = 0; e<4;e++){
-			for(int g = 0;g<3;g++){
-				System.out.print(datos[e][g]);
-			}
-			System.out.println("");
 		}
 		
 		return datos;

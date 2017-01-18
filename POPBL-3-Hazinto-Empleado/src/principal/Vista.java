@@ -1,39 +1,20 @@
 package principal;
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.BorderFactory;
-import javax.swing.Box;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.JToolBar;
-import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.table.DefaultTableModel;
+
 
 public class Vista  implements ActionListener{
 
@@ -45,17 +26,26 @@ public class Vista  implements ActionListener{
 	JScrollPane panelScroll;
 	List<Log> listaLogs;
 	JTable vTabla;
-	final static String [] NOMBRE_COLUMNAS = {"Comando", "Hora","Fecha"};
+	ModeloTablaLog tabla;
+	TrazadorTablaLog trazador;
+	ModeloColumnasTablaLog columnas;
 	
 	
 	public Vista(){
 		
 		control = new Controlador();
 		
+		trazador = new TrazadorTablaLog();
+		columnas = new ModeloColumnasTablaLog(trazador);
+		tabla = new ModeloTablaLog(columnas, control);
+		
 		ventana = new JFrame ("Visor de Log");
 		
 		ventana.setJMenuBar(crearBarraMenu());
-		ventana.setExtendedState(ventana.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		//ventana.setExtendedState(ventana.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+		
+		ventana.setSize(600,400);
+		ventana.setLocation(100, 100);
 		
 		ventana.setVisible(true);
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -103,7 +93,7 @@ public class Vista  implements ActionListener{
 				if (directorio!=null && result == JFileChooser.APPROVE_OPTION){
 					path = directorio.getPath();
 					
-					listaLogs = control.leerTXT(path);
+					listaLogs = tabla.leerTablaFichero(path);
 					
 					ventana.getContentPane().add(crearPanelCentral());
 					
@@ -122,22 +112,13 @@ public class Vista  implements ActionListener{
 		
 	}
 	private Component crearPanelCentral() {
-		
-		vTabla = new JTable(crearArray(listaLogs),NOMBRE_COLUMNAS);
+		vTabla = new JTable(tabla,columnas);
 		JScrollPane panel = new JScrollPane(vTabla,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		vTabla.setFillsViewportHeight(true);
+		vTabla.setDefaultEditor(Object.class, null);
 
 		return panel;
-	}
-	private String [][] crearArray(List<Log> tabla) {
-		String [][] datos = new String [tabla.size()][NOMBRE_COLUMNAS.length];
-		int i = 0;
-		for (Log log: tabla){
-			datos[i] = log.toArray();
-			i++;
-		}
-		
-		return datos;
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {

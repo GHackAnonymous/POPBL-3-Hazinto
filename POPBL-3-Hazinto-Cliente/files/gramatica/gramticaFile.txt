@@ -4,12 +4,14 @@ grammar sentence;
 public <sentence> =
 [<dato0>]
 [<dato1>]
-[<dato2>],[<dato3>]
-[<dato4>],[<dato5>]
+[<dato2>]
+[<dato3>]
+[<dato4>]
+[<dato5>]
 [<dato6>]
 [<dato7>];
  
-<dato0>=Hacinto;
+<dato0>=Jacinto;
 <dato1>=cerrar;
 <dato2>=Abrir;
 <dato3>=Ventana; 

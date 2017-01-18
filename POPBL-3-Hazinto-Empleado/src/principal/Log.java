@@ -6,6 +6,11 @@ public class Log {
 	private String hora = null;
 	private final int NUMCAMPOS = 3;
 	
+	public Log(String comando, String hora, String fecha) {
+		this.comando = comando;
+		this.fecha = fecha;
+		this.hora = hora;
+	}
 	public String getComando() {
 		return comando;
 	}
@@ -31,5 +36,21 @@ public class Log {
 		datos[2] = fecha;
 		
 		return datos;
+	}
+	
+	public Class<?> getFieldClass(int indice){
+		switch (indice){
+		default: return String.class; 
+		}
+		
+	}
+
+	public Object getFieldAt(int columna) {
+		switch (columna){
+		case 0: return comando;
+		case 1: return hora;
+		case 2: return fecha;
+		default: return null; 
+		}
 	}
 }

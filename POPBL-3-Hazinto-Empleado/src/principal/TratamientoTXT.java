@@ -20,12 +20,9 @@ public class TratamientoTXT {
 			String s;
 			String[] linea = null;
 			while ((s = in.readLine())!=null){
-				Log log = new Log();
+				
 				linea = s.split("[$]");
-				log.setComando(linea[0]);
-				log.setHora(linea[1]);
-				log.setFecha(linea[2]);
-				logs.add(log);
+				logs.add(new Log(linea[0],linea[1],linea[2]));
 			}
 			return logs;
 		} catch (FileNotFoundException e) {

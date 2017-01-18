@@ -24,7 +24,6 @@ public class Conexion extends Thread{
     private ObjectInputStream is;
     private OutputStream os;
     private ObjectOutputStream out;
-    private String comando = "";
     private Controlador c;
     VariablesComunes vc;
     
@@ -61,11 +60,6 @@ public class Conexion extends Thread{
 
             } catch (IOException e) {e.printStackTrace();}
 
-            
-            
-           
-
-
            // int turno = (int) in.readObject();
 
             out.close();
@@ -79,19 +73,5 @@ public class Conexion extends Thread{
                 socket.close();
             } catch (IOException e) {e.printStackTrace();}
         }
-    }
-
-    /**
-     * @return the comnado
-     */
-    public String getComnado() {
-        return comando;
-    }
-
-    /**
-     * @param comnado the comnado to set
-     */
-    public void setComnado(String comando) {
-        this.comando = comando;
     }
 }

@@ -19,8 +19,6 @@ public class VariablesComunes {
         
         synchronized(this) {  
             this.comando = comando; 
-        }  
-
-       
+        }
     }
 }

@@ -13,11 +13,14 @@ public class Controlador {
     VariablesComunes vc;
     Conexion conexion;
     HiloVoz hiloVoz;
+    Graficos graficos;
     
     public Controlador(VariablesComunes vc){
         this.vc = vc;
         conexion = new Conexion(this, this.vc);
         conexion.start();
         hiloVoz = new HiloVoz(this, this.vc);
+        graficos = new  Graficos(this, this.vc);
+        
     }
 }

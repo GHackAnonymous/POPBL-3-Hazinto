@@ -63,16 +63,21 @@ public class Voz extends ResultAdapter {
                             break; 
                      }
                 }
+            }else if(tokens.size() == 1){
+                if(activo == true){
+                	if(gst.equals("Salir")){
+                        recognizer.deallocate();
+                        System.out.println("Saliendo....");
+                        System.exit(0);
+                    }else{
+                       recognizer.suspend();
+                       recognizer.resume();
+                    }
+                }
             }
           }
-          if(gst.equals("Salir")){
-              recognizer.deallocate();
-              System.out.println("Saliendo....");
-              System.exit(0);
-          }else{
-             recognizer.suspend();
-             recognizer.resume();
-          }
+          	recognizer.suspend();
+          	recognizer.resume();
        }catch(Exception ex){
            System.out.println("Ha ocurrido algo inesperado " + ex);
        }

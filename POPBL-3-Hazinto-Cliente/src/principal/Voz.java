@@ -37,29 +37,31 @@ public class Voz extends ResultAdapter {
             gst = tokens.get(i).getSpokenText();
             if(tokens.size() == 1){
                 if(gst.equalsIgnoreCase("Jacinto")){
+                	System.out.println(gst);
                     activo = true;
-                }else if(gst.equalsIgnoreCase("cerrar")){
+                }/*else if(gst.equalsIgnoreCase("cerrar")){
                    activo = false;
-                }
-            }
-            if(tokens.size() == 2){
+                }*/
+            }else if(tokens.size() == 2){
+            	System.out.println(gst);
                 if(activo == true){
-                    switch(gst){
+                    switch(""+tokens.get(0).getSpokenText()+" "+tokens.get(1).getSpokenText()){
                         case "Abrir Ventana":
                             System.out.println("Abriendo ventanas....");
                             
                             this.vc.setComando("Abriendo ventanas....");
 
-                             // aqui se reliazan las conexiones
-
+                             // aqui se reliazan llamada a hilo concexion basys
+                            activo = false;
                             break;
                         case "Encender Luz":
+                        	System.out.println(gst);
                             System.out.println("Encendiendo luces....");
                             
                             this.vc.setComando("Encendiendo luces....");
 
-                             // aqui se reliazan las conexiones
-
+                            // aqui se reliazan llamada a hilo concexion basys
+                            activo = false;
                             break; 
                      }
                 }

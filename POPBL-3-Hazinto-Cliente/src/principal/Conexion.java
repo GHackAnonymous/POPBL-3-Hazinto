@@ -41,7 +41,7 @@ public class Conexion extends Thread{
         try{
             try {
             	System.out.println("Relaizando conexion");
-                 socket = new Socket("127.0.0.1",5500);
+                 socket = new Socket("172.17.29.121",5500);
 
                  out = new ObjectOutputStream(socket.getOutputStream());
                  in = new ObjectInputStream(socket.getInputStream());

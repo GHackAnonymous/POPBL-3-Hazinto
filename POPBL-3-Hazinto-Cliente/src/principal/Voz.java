@@ -36,7 +36,7 @@ public class Voz extends ResultAdapter {
           for (int i=0; i < tokens.size(); i++){
             gst = tokens.get(i).getSpokenText();
             if(tokens.size() == 1){
-                if(gst.equalsIgnoreCase("Hacinto")){
+                if(gst.equalsIgnoreCase("Jacinto")){
                     activo = true;
                 }else if(gst.equalsIgnoreCase("cerrar")){
                    activo = false;

@@ -26,9 +26,11 @@ public class Hilo extends Thread{
     private ObjectInputStream is;
     private OutputStream os;
     private ObjectOutputStream out;
+    private Vista vista;
     
     
     public Hilo(Socket socket) throws IOException{
+    	vista = new Vista();
         this.socket = socket;
         this.in = this.socket.getInputStream();
         this.is = new ObjectInputStream(in);
@@ -42,15 +44,19 @@ public class Hilo extends Thread{
             String comando = "";
             do{
                 System.out.println("ESPERANDO COMANDO");
+                vista.setLog("ESPERANDO COMANDO");
               //  System.out.println(is.readUTF());
                 comando = (String) is.readObject();
                 System.out.println(comando);
+                vista.setLog(comando);
                 System.out.println("COMANDO RECIBIDO");
+                vista.setLog("COMANDO RECIBIDO");
             }while(!comando.equalsIgnoreCase("Salir"));
             this.stop();
         
         } catch(SocketException e){
             System.out.println("CONEXION PERDIDA");
+            vista.setLog("CONEXION PERDIDA");
             this.stop();
         } catch (IOException ex) {
             Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);

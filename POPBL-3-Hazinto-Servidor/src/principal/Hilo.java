@@ -7,6 +7,11 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.SocketException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,10 +32,12 @@ public class Hilo extends Thread{
     private OutputStream os;
     private ObjectOutputStream out;
     private Vista vista;
+    private TratamientoTXT tratadorTXT;
     
     
     public Hilo(Socket socket) throws IOException{
     	vista = new Vista();
+    	tratadorTXT = new TratamientoTXT();
         this.socket = socket;
         this.in = this.socket.getInputStream();
         this.is = new ObjectInputStream(in);
@@ -42,13 +49,28 @@ public class Hilo extends Thread{
     public void run(){
         try {
             String comando = "";
+            String log = "";
+            
+            String nombreCliente = (String) is.readObject();
+            
             do{
                 System.out.println("ESPERANDO COMANDO");
                 vista.setLog("ESPERANDO COMANDO");
               //  System.out.println(is.readUTF());
                 comando = (String) is.readObject();
+                
                 System.out.println(comando);
-                vista.setLog(comando);
+                
+                String fecha = this.saberFecha();
+                String hora = this.saberHora();
+                
+                log = comando+"$"+hora+"$"+fecha;
+                
+                
+                vista.setLog(comando+" / "+hora+" / "+fecha);
+                
+                tratadorTXT.guardar(log, "files/"+nombreCliente+".txt");
+               
                 System.out.println("COMANDO RECIBIDO");
                 vista.setLog("COMANDO RECIBIDO");
             }while(!comando.equalsIgnoreCase("Salir"));
@@ -63,5 +85,16 @@ public class Hilo extends Thread{
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Hilo.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public String saberFecha(){
+    	Date date = new Date();
+    	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    	return ""+dateFormat.format(date);
+    }
+    public String saberHora(){
+    	Date date = new Date();
+    	DateFormat hourFormat = new SimpleDateFormat("HH:mm");
+    	return ""+hourFormat.format(date);
     }
 }

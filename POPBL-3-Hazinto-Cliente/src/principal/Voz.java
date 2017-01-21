@@ -47,18 +47,18 @@ public class Voz extends ResultAdapter {
                 if(activo == true){
                     switch(""+tokens.get(0).getSpokenText()+" "+tokens.get(1).getSpokenText()){
                         case "Abrir Ventana":
-                            System.out.println("Abriendo ventanas....");
+                            System.out.println("Abriendo ventanas...");
                             
-                            this.vc.setComando("Abriendo ventanas....");
+                            this.vc.setComando("Abriendo ventanas...");
 
                              // aqui se reliazan llamada a hilo concexion basys
                             activo = false;
                             break;
                         case "Encender Luz":
                         	System.out.println(gst);
-                            System.out.println("Encendiendo luces....");
+                            System.out.println("Encendiendo luces...");
                             
-                            this.vc.setComando("Encendiendo luces....");
+                            this.vc.setComando("Encendiendo luces...");
 
                             // aqui se reliazan llamada a hilo concexion basys
                             activo = false;

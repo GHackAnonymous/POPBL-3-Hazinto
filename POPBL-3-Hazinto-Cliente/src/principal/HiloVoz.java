@@ -16,5 +16,6 @@ public class HiloVoz extends Thread{
         this.c = c;
         this.vc = vc;
         Voz voz = new Voz(this, vc);
+       // Menu menu = new Menu(this.vc);
     }
 }

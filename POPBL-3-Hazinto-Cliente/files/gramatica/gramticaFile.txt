@@ -9,13 +9,17 @@ public <sentence> =
 [<dato4>]
 [<dato5>]
 [<dato6>]
-[<dato7>];
+[<dato7>]
+[<dato8>]
+[<dato9>];
  
 <dato0>=Jacinto;
-<dato1>=cerrar;
-<dato2>=Abrir;
-<dato3>=Ventana; 
+<dato1>=Bajar;
+<dato2>=Subir;
+<dato3>=Persiana; 
 <dato4>=Encender;
 <dato5>=Luz;
-<dato6>=apagar;
-<dato7>=Salir;
+<dato6>=Apagar;
+<dato7>=Aire;
+<dato8>=Alarma;
+<dato9>=Salir;

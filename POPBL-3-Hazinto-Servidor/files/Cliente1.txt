@@ -1,2 +1,102 @@
 Encendiendo luces...$10:59$21/01/2017
 Abriendo ventanas...$11:04$21/01/2017
+Abriendo ventanas...$19:17$22/01/2017
+Abriendo ventanas...$19:22$22/01/2017
+Abriendo ventanas...$19:22$22/01/2017
+Abriendo ventanas...$19:22$22/01/2017
+Abriendo ventanas...$19:23$22/01/2017
+Encendiendo luces...$19:23$22/01/2017
+Abriendo ventanas...$19:23$22/01/2017
+Encendiendo luces...$19:23$22/01/2017
+Encendiendo luces...$19:23$22/01/2017
+Encendiendo luces...$19:23$22/01/2017
+Encendiendo luces...$19:23$22/01/2017
+Abriendo ventanas...$20:39$22/01/2017
+Apagar luz comedor$20:42$22/01/2017
+Encender luz comedor$20:42$22/01/2017
+Apagar aire comedor$20:42$22/01/2017
+Encender aire comedor$20:42$22/01/2017
+Bajar persiana cuarto$20:42$22/01/2017
+Subir persiana cuarto$20:42$22/01/2017
+Bajar persiana comedor$20:42$22/01/2017
+Subir persiana comedor$20:43$22/01/2017
+Apagar aire cuarto$20:43$22/01/2017
+Encender aire cuarto$20:43$22/01/2017
+Encender luz comedor$20:44$22/01/2017
+Apagar luz comedor$20:44$22/01/2017
+Subir persiana cuarto$20:44$22/01/2017
+Bajar persiana cuarto$20:44$22/01/2017
+Subir persiana comedor$20:44$22/01/2017
+Bajar persiana comedor$20:44$22/01/2017
+Encender aire comedor$20:45$22/01/2017
+Apagar aire comedor$20:45$22/01/2017
+Encender aire cuarto$20:45$22/01/2017
+Apagar aire cuarto$20:45$22/01/2017
+Encender luz comedor$20:45$22/01/2017
+Apagar luz comedor$20:45$22/01/2017
+Bajando Persianas cuarto...$20:55$22/01/2017
+Bajando Persianas cuarto...$20:58$22/01/2017
+Bajando Persianas cuarto...$21:12$22/01/2017
+Subir persiana cuarto$21:12$22/01/2017
+Bajar persiana cuarto$21:12$22/01/2017
+Bajando Persianas cuarto...$21:14$22/01/2017
+Bajando Persianas cuarto...$21:19$22/01/2017
+Subir persiana cuarto$21:22$22/01/2017
+Subir persiana cuarto$21:22$22/01/2017
+Subir persiana cuarto$21:25$22/01/2017
+Bajar persiana cuarto$21:26$22/01/2017
+Subiendo Persianas cuarto...$21:28$22/01/2017
+Subiendo Persianas cuarto...$21:33$22/01/2017
+Bajar persiana cuarto$21:34$22/01/2017
+Subir persiana cuarto$21:39$22/01/2017
+Subir persiana cuarto$21:39$22/01/2017
+Subir persiana cuarto$21:42$22/01/2017
+Subir persiana cuarto$21:44$22/01/2017
+Subir persiana cuarto$21:46$22/01/2017
+Subir persiana cuarto$21:47$22/01/2017
+Subir persiana cuarto$21:50$22/01/2017
+Bajar persiana cuarto$21:50$22/01/2017
+Subir persiana comedor$21:50$22/01/2017
+Bajar persiana comedor$21:50$22/01/2017
+Encender luz comedor$21:50$22/01/2017
+Encender aire comedor$21:50$22/01/2017
+Apagar luz comedor$21:50$22/01/2017
+Subir persiana cuarto$21:50$22/01/2017
+Bajar persiana cuarto$21:50$22/01/2017
+Subir persiana comedor$21:50$22/01/2017
+Bajar persiana comedor$21:50$22/01/2017
+Encender luz comedor$21:50$22/01/2017
+Encender luz comedor$21:50$22/01/2017
+Apagar aire comedor$21:50$22/01/2017
+Apagar aire comedor$21:50$22/01/2017
+Apagar aire cuarto$21:51$22/01/2017
+Apagar aire cuarto$21:51$22/01/2017
+Subir persiana cuarto$21:51$22/01/2017
+Subir persiana cuarto$21:52$22/01/2017
+Encender aire cuarto$21:56$22/01/2017
+Apagar aire cuarto$21:57$22/01/2017
+Subir persiana cuarto$21:57$22/01/2017
+Subir persiana cuarto$22:00$22/01/2017
+Subir persiana cuarto$22:00$22/01/2017
+Subir persiana cuarto$22:00$22/01/2017
+Subir persiana cuarto$22:01$22/01/2017
+Subir persiana cuarto$22:01$22/01/2017
+Subir persiana cuarto$22:01$22/01/2017
+Subir persiana cuarto$22:01$22/01/2017
+Subir persiana cuarto$22:01$22/01/2017
+Subir persiana cuarto$22:10$22/01/2017
+Subiendo Persianas cuarto...$22:14$22/01/2017
+Subir persiana cuarto$22:18$22/01/2017
+Subir persiana cuarto$22:18$22/01/2017
+Encender luz comedor$22:18$22/01/2017
+Encender luz comedor$22:18$22/01/2017
+Subir persiana cuarto$22:24$22/01/2017
+Encender luz comedor$22:24$22/01/2017
+Subir persiana cuarto$22:25$22/01/2017
+Bajando Persianas cuarto...$22:26$22/01/2017
+Bajando Persianas cuarto...$22:29$22/01/2017
+Subiendo Persiana Cuarto$22:41$22/01/2017
+Bajar persiana cuarto$22:43$22/01/2017
+Subiendo Persiana Cuarto$22:47$22/01/2017
+Bajar persiana cuarto$22:47$22/01/2017
+Subir persiana cuarto$22:47$22/01/2017

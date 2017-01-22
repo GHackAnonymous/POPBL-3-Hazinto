@@ -26,10 +26,12 @@ public class Conexion extends Thread{
     private ObjectOutputStream out;
     private Controlador c;
     VariablesComunes vc;
+    String nombreCliente;
     
-    public Conexion(Controlador c, VariablesComunes vc){
+    public Conexion(Controlador c, VariablesComunes vc,String nombreCliente){
         this.c = c;
         this.vc = vc;
+        this.nombreCliente = nombreCliente;
     }
 
     public Conexion(VariablesComunes vc) {
@@ -41,10 +43,12 @@ public class Conexion extends Thread{
         try{
             try {
             	System.out.println("Relaizando conexion");
-                 socket = new Socket("172.17.29.121",5500);
+                 socket = new Socket("127.0.0.1",5500);
 
                  out = new ObjectOutputStream(socket.getOutputStream());
                  in = new ObjectInputStream(socket.getInputStream());
+                 
+                 out.writeObject(this.nombreCliente);
                  
                  System.out.println("conexion realizada");
                  do{

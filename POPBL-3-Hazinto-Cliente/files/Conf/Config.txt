@@ -1,0 +1,5 @@
+Persiana cuarto$300$img/Persiana.png
+Luz comedor$400$img/BombillaTrans.png
+Persiana comedor$300$img/Persiana.png
+Aire comedor$700$img/aire.png
+Aire cuarto$700$img/aire.png

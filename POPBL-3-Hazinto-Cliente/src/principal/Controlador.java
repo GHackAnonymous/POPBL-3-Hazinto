@@ -21,7 +21,7 @@ public class Controlador {
     public Controlador(VariablesComunes vc){
         this.vc = vc;
         conexion = new Conexion(this, this.vc,NOMBRECLIENTE);
-        conexionBesys = new ConexionBasys(this, this.vc);
+        //conexionBesys = new ConexionBasys(this, this.vc);
         conexion.start();
         hiloVoz = new HiloVoz(this, this.vc);
         graficos = new  Graficos(this, this.vc);

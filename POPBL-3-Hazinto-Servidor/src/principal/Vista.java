@@ -22,9 +22,9 @@ public class Vista  implements ActionListener{
 	JTextArea jtextarea;
 	
 	
-	public Vista(){
+	public Vista(String nombreCliente){
 
-		ventana = new JFrame ("Server Log Live");
+		ventana = new JFrame ("Server Log Live "+nombreCliente);
 		
 		ventana.setJMenuBar(crearBarraMenu());
 		ventana.getContentPane().add(crearPanelCentral());
@@ -33,7 +33,7 @@ public class Vista  implements ActionListener{
 		ventana.setLocation(100, 100);
 		
 		ventana.setVisible(true);
-		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 	
 	private JMenuBar crearBarraMenu() {

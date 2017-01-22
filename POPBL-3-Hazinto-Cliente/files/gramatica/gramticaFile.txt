@@ -11,7 +11,8 @@ public <sentence> =
 [<dato6>]
 [<dato7>]
 [<dato8>]
-[<dato9>];
+[<dato9>]
+[<dato10>];
  
 <dato0>=Jacinto;
 <dato1>=Bajar;
@@ -21,5 +22,6 @@ public <sentence> =
 <dato5>=Luz;
 <dato6>=Apagar;
 <dato7>=Aire;
-<dato8>=Alarma;
-<dato9>=Salir;
+<dato8>=Cuarto;
+<dato9>=Comedor;
+<dato10>=Salir;

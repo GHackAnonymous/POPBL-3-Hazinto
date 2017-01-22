@@ -1,5 +1,7 @@
 package principal;
 
+import java.util.Observable;
+
 /**
 *
 * @author Eder Gomez de segura <eder.gomezp@alumni.mondragon.edu>
@@ -8,7 +10,7 @@ package principal;
 * @author Iñigo Ayestaran <inigo.ayestaran@alumni.mondragon.edu>
 * @author Nikolay Zabaleta <nikolay.zabaleta@alumni.mondragon.edu>
 */
-public class VariablesComunes {
+public class VariablesComunes extends Observable {
     private volatile String comando = "";
 
     public String getComando() {
@@ -19,6 +21,10 @@ public class VariablesComunes {
         
         synchronized(this) {  
             this.comando = comando; 
+            if(!this.comando.equalsIgnoreCase("")){
+	            this.setChanged();
+				this.notifyObservers(this);
+            }
         }
     }
 }

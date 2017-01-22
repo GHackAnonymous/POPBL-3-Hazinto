@@ -36,7 +36,7 @@ public class Hilo extends Thread{
     
     
     public Hilo(Socket socket) throws IOException{
-    	vista = new Vista();
+    	
     	tratadorTXT = new TratamientoTXT();
         this.socket = socket;
         this.in = this.socket.getInputStream();
@@ -52,6 +52,8 @@ public class Hilo extends Thread{
             String log = "";
             
             String nombreCliente = (String) is.readObject();
+            
+            vista = new Vista(nombreCliente);
             
             do{
                 System.out.println("ESPERANDO COMANDO");

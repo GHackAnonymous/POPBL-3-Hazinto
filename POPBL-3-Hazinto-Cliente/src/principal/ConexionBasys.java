@@ -28,7 +28,7 @@ public class ConexionBasys extends Thread{
     	
     	
     	switch(this.vc.getComando()){
-        case "Bajar Persiana":
+        case "Bajar Persiana Cuarto":
             // aqui se reliazan llamada a hilo concexion basys
         	
         	GpioPinDigitalOutput pinBPersiana = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00,
@@ -46,7 +46,7 @@ public class ConexionBasys extends Thread{
         	pinBPersiana.low();
             
             break;
-        case "Subir Persiana":
+        case "Subir Persiana Cuarto":
         	GpioPinDigitalOutput pinSPersiana = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01,
 					"subirPersiana", PinState.HIGH);
 
@@ -61,7 +61,7 @@ public class ConexionBasys extends Thread{
 			
 			pinSPersiana.low();
             break; 
-        case "Encender Luz":
+        case "Encender Luz Comedor":
         	GpioPinDigitalOutput pinELuz = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_02,
 					"encenderLuz", PinState.HIGH);
 
@@ -76,7 +76,7 @@ public class ConexionBasys extends Thread{
 			
 			pinELuz.low();
             break; 
-        case "Apagar Luz":
+        case "Apagar Luz Comedor":
         	GpioPinDigitalOutput pinALuz = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_03,
 					"apagarLuz", PinState.HIGH);
 
@@ -91,7 +91,7 @@ public class ConexionBasys extends Thread{
 			
 			pinALuz.low();
             break;
-        case "Encender Aire":
+        case "Encender Aire Comedor":
         	GpioPinDigitalOutput pinEAire = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04,
 					"encenderAire", PinState.HIGH);
 
@@ -106,7 +106,7 @@ public class ConexionBasys extends Thread{
 			
 			pinEAire.low();
             break; 
-        case "Apagar Aire":
+        case "Apagar Aire Comedor":
         	GpioPinDigitalOutput pinAAire = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_05,
 					"apagarAire", PinState.HIGH);
 
@@ -121,7 +121,7 @@ public class ConexionBasys extends Thread{
 			
 			pinAAire.low();
             break; 
-        case "Encender Alarma":
+        case "Encender Aire Cuarto":
         	GpioPinDigitalOutput pinEAlarma = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_06,
 					"encendeAlarma", PinState.HIGH);
 
@@ -136,7 +136,7 @@ public class ConexionBasys extends Thread{
 			
 			pinEAlarma.low();
             break; 
-        case "Apagar Alarma":
+        case "Apagar Aire Cuarto":
         	GpioPinDigitalOutput pinAAlarma = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07,
 					"apagarAlarma", PinState.HIGH);
 

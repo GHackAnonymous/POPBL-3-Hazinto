@@ -28,13 +28,15 @@ public class Objeto extends JPanel implements Observer{
 	ImageIcon imagen;
 	JLabel estado1;
 	JPanel botones;
-	JPanel panelPrincipal, panelCambio1, panelBoton, panelCambio2;
+	JPanel panelPrincipal, panelObjetoFrontal, panelBoton, panelObjetoTrasero;
 	JButton boton;
 	String [] palabras;
 	VariablesComunes vc;
 	JButton botonUp, botonDown;
+	String comandoAnterior = "";
 
-	public Objeto(String nombre, boolean estado, double consumo, String imagen, VariablesComunes vc){
+	public Objeto(String nombre, boolean estado, double consumo, String imagen, 
+			VariablesComunes vc){
 		super(new BorderLayout());
 		this.vc = vc;
 		this.vc.addObserver(this);
@@ -43,9 +45,15 @@ public class Objeto extends JPanel implements Observer{
 		this.consumo = consumo;
 		this.imagen = new ImageIcon(imagen);
 		botones = new JPanel(new BorderLayout());
-		panelCambio2 = new JPanel(new BorderLayout(0,6));
+		panelObjetoTrasero = new JPanel(new BorderLayout(0,6));
 		panelPrincipal = new JPanel(new BorderLayout(0,6));
-		palabras = nombre.toLowerCase().split("[ ]");
+		palabras = separadorPalabras(nombre);
+		this.panelPersiana();
+	}
+	private String[] separadorPalabras(String frase){
+		return frase.toLowerCase().split("[ ]");
+	}
+	private void panelPersiana(){
 		if(palabras[0].equals("persiana")){
 			this.add(crearPanelPersiana(), BorderLayout.CENTER);
 		}else{
@@ -62,16 +70,14 @@ public class Objeto extends JPanel implements Observer{
 				if(boton.getText().equals(nombre)){
 					boton.setText("Back");
 					changeContent(1);
-					panelCambio1.setEnabled(false);
-					panelCambio2.setEnabled(true);
+					panelObjetoFrontal.setEnabled(false);
+					panelObjetoTrasero.setEnabled(true);
 				}else{
 					boton.setText(nombre);
 					changeContent(2);
-					panelCambio1.setEnabled(true);
-					panelCambio2.setEnabled(false);
+					panelObjetoFrontal.setEnabled(true);
+					panelObjetoTrasero.setEnabled(false);
 				}
-				
-				
 			}
 			
 		});
@@ -79,9 +85,17 @@ public class Objeto extends JPanel implements Observer{
 		return panelBoton;
 		
 	}
+	public void botonUp(){
+		botonUp.setEnabled(true);
+		botonDown.setEnabled(false);
+	} 
+	public void botonDown(){
+		botonUp.setEnabled(false);
+		botonDown.setEnabled(true);
+	} 
 	public JPanel crearPanelPersiana(){
 		JLabel nombre, consumo, imagen;
-		panelCambio1 = new JPanel(new BorderLayout());
+		panelObjetoFrontal = new JPanel(new BorderLayout());
 		
 		botonUp = new JButton("Up");
 		botonDown = new JButton("Down");
@@ -99,9 +113,7 @@ public class Objeto extends JPanel implements Observer{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				cambiarEstado();
-				botonUp.setEnabled(false);
-				botonDown.setEnabled(true);
-				
+				botonDown();
 			}
 			
 		});
@@ -111,38 +123,35 @@ public class Objeto extends JPanel implements Observer{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				cambiarEstado();
-				botonUp.setEnabled(true);
-				botonDown.setEnabled(false);
-				
+				botonUp();
 			}
 			
 		});
 		botones.add(botonUp, BorderLayout.NORTH);
 		botones.add(botonDown, BorderLayout.SOUTH);
-		this.panelCambio1.add(imagen, BorderLayout.CENTER);
-		this.panelCambio1.add(botones, BorderLayout.WEST);
-		this.panelCambio2.add(nombre, BorderLayout.NORTH);
-		this.panelCambio2.add(consumo, BorderLayout.SOUTH);
-		this.panelCambio2.add(estado1, BorderLayout.CENTER);
+		this.panelObjetoFrontal.add(imagen, BorderLayout.CENTER);
+		this.panelObjetoFrontal.add(botones, BorderLayout.WEST);
+		this.panelObjetoTrasero.add(nombre, BorderLayout.NORTH);
+		this.panelObjetoTrasero.add(consumo, BorderLayout.SOUTH);
+		this.panelObjetoTrasero.add(estado1, BorderLayout.CENTER);
 		/*this.panelCambio1.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.panelCambio2.setBorder(BorderFactory.createLineBorder(Color.black));*/
 		this.panelPrincipal.add(crearPanelBoton(), BorderLayout.SOUTH);
-		this.panelPrincipal.add(panelCambio1, BorderLayout.CENTER);
+		this.panelPrincipal.add(panelObjetoFrontal, BorderLayout.CENTER);
 
 		if(this.estado){
 			botones.setBackground(Color.gray.brighter().brighter().brighter());
-			this.panelCambio1.setBackground(Color.gray.brighter().brighter().brighter());
+			this.panelObjetoFrontal.setBackground(Color.gray.brighter().brighter().brighter());
 		}else{
 			botones.setBackground(Color.gray);
-			this.panelCambio1.setBackground(Color.gray);
+			this.panelObjetoFrontal.setBackground(Color.gray);
 		}
-		
 		
 		return panelPrincipal;
 	}
 	public JPanel crearPanelNormal(){
 		JLabel nombre, consumo, imagen;
-		panelCambio1 = new JPanel();
+		panelObjetoFrontal = new JPanel();
 		nombre = new JLabel();
 		nombre.setText(this.nombre);
 		Font fuente = new Font("Monospaced", Font.BOLD, 20);
@@ -157,54 +166,39 @@ public class Objeto extends JPanel implements Observer{
 		
 		imagen = new JLabel();
 		imagen.setIcon(this.imagen);
-		this.panelCambio1.add(imagen);
-		this.panelCambio2.add(nombre, BorderLayout.NORTH);
-		this.panelCambio2.add(consumo, BorderLayout.SOUTH);
-		this.panelCambio2.add(estado1, BorderLayout.CENTER);
+		this.panelObjetoFrontal.add(imagen);
+		this.panelObjetoTrasero.add(nombre, BorderLayout.NORTH);
+		this.panelObjetoTrasero.add(consumo, BorderLayout.SOUTH);
+		this.panelObjetoTrasero.add(estado1, BorderLayout.CENTER);
 		/*this.panelCambio1.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.panelCambio2.setBorder(BorderFactory.createLineBorder(Color.black));*/
 		this.panelPrincipal.add(crearPanelBoton(), BorderLayout.SOUTH);
-		this.panelPrincipal.add(panelCambio1, BorderLayout.CENTER);
+		this.panelPrincipal.add(panelObjetoFrontal, BorderLayout.CENTER);
 
 		if(this.estado){
-			
-			this.panelCambio1.setBackground(Color.gray.brighter().brighter().brighter());
+			this.panelObjetoFrontal.setBackground(Color.gray.brighter().brighter().brighter());
 		}else{
-			this.panelCambio1.setBackground(Color.gray);
+			this.panelObjetoFrontal.setBackground(Color.gray);
 		}
 		
-		this.panelCambio1.addMouseListener(new MouseListener(){
+		this.panelObjetoFrontal.addMouseListener(new MouseListener(){
 
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
-					
-			}
+			public void mouseClicked(MouseEvent arg0) {}
 
 			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Ap¨¦ndice de m¨¦todo generado autom¨¢ticamente
-				
-			}
+			public void mouseEntered(MouseEvent arg0) {}
 
 			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Ap¨¦ndice de m¨¦todo generado autom¨¢ticamente
-				
-			}
+			public void mouseExited(MouseEvent arg0) {}
 
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				
 				cambiarEstado();
-				
-				
 			}
 
 			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Ap¨¦ndice de m¨¦todo generado autom¨¢ticamente
-				
-			}
+			public void mouseReleased(MouseEvent arg0) {}
 			
 		});
 		return panelPrincipal;
@@ -217,7 +211,6 @@ public class Objeto extends JPanel implements Observer{
 			}else{
 				this.vc.setComando("Apagar "+this.nombre);
 			}
-			
 		}else{
 			if(palabras[0].equals("persiana")){
 				this.vc.setComando("Subir "+this.nombre);
@@ -225,55 +218,81 @@ public class Objeto extends JPanel implements Observer{
 				this.vc.setComando("Encender "+this.nombre);
 			}
 		}
-		
 	}
 	public void changeContent(int i){
 		if(i ==1){
-			this.panelPrincipal.remove(this.panelCambio1);
-			this.panelPrincipal.add(this.panelCambio2, BorderLayout.CENTER);
+			this.panelPrincipal.remove(this.panelObjetoFrontal);
+			this.panelPrincipal.add(this.panelObjetoTrasero, BorderLayout.CENTER);
 		}else if(i == 2){
-			this.panelPrincipal.remove(this.panelCambio2);
-			this.panelPrincipal.add(this.panelCambio1, BorderLayout.CENTER);
+			this.panelPrincipal.remove(this.panelObjetoTrasero);
+			this.panelPrincipal.add(this.panelObjetoFrontal, BorderLayout.CENTER);
 			
 		}
-		
 	}
 	
 	@Override
 	public void update(Observable asc, Object objetoModificado) {
 		if(!this.vc.getComando().equalsIgnoreCase("")){
-			String[] porPalabras = this.vc.getComando().toLowerCase().split("[ ]");
+			
+			String[] porPalabras = separadorPalabras(this.vc.getComando());
 			String nombrePorComando = porPalabras[1]+" "+porPalabras[2];
+			
 			if(nombrePorComando.equalsIgnoreCase(this.nombre)){
-				String[] palabras2 = this.vc.getComando().toLowerCase().split("[ ]");
 				if(this.estado){
-					this.estado = false;
-					botones.setBackground(Color.gray);
-					this.panelCambio1.setBackground(Color.gray);
-					if(palabras2[1].equals("persiana")){
+					
+					
+					String comando = porPalabras[0] +" "+porPalabras[1];
+					//if(comando.equalsIgnoreCase("Bajar persiana")){
+					if(!comandoAnterior.equalsIgnoreCase("Subir persiana")){
+						this.estado = false;
+						
+						botonUp();
+						
 						this.estado1.setText("Down");
-						botonUp.setEnabled(true);
-						botonDown.setEnabled(false);
+						
+						botones.setBackground(Color.gray);
+						this.panelObjetoFrontal.setBackground(Color.gray);
+						
 						this.vc.setComando("");
-					}else{
+					}else if(porPalabras[0].equalsIgnoreCase("Apagar")){
+						this.estado = false;
+						botones.setBackground(Color.gray);
+						this.panelObjetoFrontal.setBackground(Color.gray);
+						
 						this.estado1.setText("OFF");
 						this.vc.setComando("");
 					}
-					
+					comandoAnterior = porPalabras[0]+" "+porPalabras[1];
 				}else{
-					this.estado = true;
-					botones.setBackground(Color.gray.brighter().brighter().brighter());
-					this.panelCambio1.setBackground(Color.gray.brighter().brighter().brighter());
-					if(palabras2[1].equals("persiana")){
+					
+					//botones.setBackground(Color.gray.brighter().brighter().brighter());
+					
+					//this.panelObjetoFrontal.setBackground(
+					//		Color.gray.brighter().brighter().brighter());
+					String comando = porPalabras[0] +" "+porPalabras[1];
+					if(!comandoAnterior.equalsIgnoreCase("Bajar persiana")){
+						this.estado = true;
+					//if(comando.equalsIgnoreCase("Subir persiana")){
+						
+						botonDown();
 						this.estado1.setText("UP");
-						botonUp.setEnabled(false);
-						botonDown.setEnabled(true);
 						this.vc.setComando("");
-					}else{
+						
+						botones.setBackground(Color.gray.brighter().brighter().brighter());
+						
+						this.panelObjetoFrontal.setBackground(
+								Color.gray.brighter().brighter().brighter());
+					}else if(porPalabras[0].equalsIgnoreCase("Encender")){
+						this.estado = true;
+						botones.setBackground(Color.gray.brighter().brighter().brighter());
+						
+						this.panelObjetoFrontal.setBackground(
+								Color.gray.brighter().brighter().brighter());
 						this.estado1.setText("On");
 						this.vc.setComando("");
 					}
 				}
+				comandoAnterior = porPalabras[0]+" "+porPalabras[1];
 			}
 		}
 	}

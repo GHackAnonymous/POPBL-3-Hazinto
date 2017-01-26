@@ -145,7 +145,9 @@ public class MiDialog extends JDialog{
 	
 	private Component crearPanelTexto() {
 		JPanel panel = new JPanel (new GridLayout(1,1));
-		panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.cyan),BorderFactory.createEmptyBorder(10, 10, 10, 10)));
+		panel.setBorder(BorderFactory.createCompoundBorder(
+				BorderFactory.createLineBorder(Color.cyan),BorderFactory.createEmptyBorder(
+						10, 10, 10, 10)));
 		text = new JTextField (valor);
 		panel.add (text);
 		return panel;

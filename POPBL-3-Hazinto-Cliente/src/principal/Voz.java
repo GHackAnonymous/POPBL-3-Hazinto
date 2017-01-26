@@ -2,6 +2,8 @@ package principal;
 
 import javax.speech.*;
 import javax.speech.recognition.*;
+
+import java.awt.Toolkit;
 import java.io.FileReader;
 import java.util.Arrays;
 import java.util.List;
@@ -35,8 +37,10 @@ public class Voz extends ResultAdapter {
 
           for (int i=0; i < tokens.size(); i++){
             gst = tokens.get(i).getSpokenText();
+            System.out.println(gst);
             if(tokens.size() == 1){
-                if(gst.equalsIgnoreCase("Jacinto")){
+                if(gst.equalsIgnoreCase("Siri")){
+                	Toolkit.getDefaultToolkit().beep();
                 	System.out.println(gst);
                     activo = true;
                 }/*else if(gst.equalsIgnoreCase("cerrar")){
@@ -47,70 +51,70 @@ public class Voz extends ResultAdapter {
                 if(activo == true){
                     switch(""+tokens.get(0).getSpokenText()+" "+tokens.get(1).getSpokenText()+" "+tokens.get(2).getSpokenText()){
                         case "Bajar Persiana Cuarto":
-                            System.out.println("Bajando Persiana Cuarto");
+                            System.out.println("Bajar Persiana Cuarto");
                             
-                            this.vc.setComando("Bajando Persiana Cuarto");
+                            this.vc.setComando("Bajar Persiana Cuarto");
 
                             activo = false;
                             break;
                         case "Subir Persiana Cuarto":
-                            System.out.println("Subiendo Persiana cuarto");
+                            System.out.println("Subir Persiana cuarto");
                             
-                            this.vc.setComando("Subiendo Persiana Cuarto");
+                            this.vc.setComando("Subir Persiana Cuarto");
 
                             activo = false;
                             break;
                         case "Encender Luz Comedor":
                         	System.out.println(gst);
-                            System.out.println("Encendiendo Luz Comedor");
+                            System.out.println("Encender Luz Comedor");
                             
-                            this.vc.setComando("Encendiendo Luz Comedor");
+                            this.vc.setComando("Encender Luz Comedor");
 
                             activo = false;
                             break;
                         case "Apagar Luz Comedor":
                         	System.out.println(gst);
-                            System.out.println("Apagando Luz Comedor");
+                            System.out.println("Apagar Luz Comedor");
                             
-                            this.vc.setComando("Apagando Luz Comedor");
+                            this.vc.setComando("Apagar Luz Comedor");
 
                             activo = false;
                             break;
                         case "Encender Aire Comedor":
                         	System.out.println(gst);
-                            System.out.println("Encendiendo Aire Comedor");
+                            System.out.println("Encender Aire Comedor");
                             
-                            this.vc.setComando("Encendiendo Aire Comedor");
+                            this.vc.setComando("Encender Aire Comedor");
 
                             activo = false;
                             break; 
                         case "Apagar Aire Comedor":
                         	System.out.println(gst);
-                            System.out.println("Apagando Aire Comedor");
+                            System.out.println("Apagar Aire Comedor");
                             
-                            this.vc.setComando("Apagando Aire Comedor");
+                            this.vc.setComando("Apagar Aire Comedor");
 
                             activo = false;
                             break; 
                         case "Encender Aire Cuarto":
                         	System.out.println(gst);
-                            System.out.println("Encendiendo Aire Cuarto");
+                            System.out.println("Encender Aire Cuarto");
                             
-                            this.vc.setComando("Encendiendo Aire Cuarto");
+                            this.vc.setComando("Encender Aire Cuarto");
 
                             activo = false;
                             break; 
                         case "Apagar Aire Cuarto":
                         	System.out.println(gst);
-                            System.out.println("Apagando Aire Cuarto");
+                            System.out.println("Apagar Aire Cuarto");
                             
-                            this.vc.setComando("Apagando Aire Cuarto");
+                            this.vc.setComando("Apagar Aire Cuarto");
 
                             activo = false;
                             break; 
                      }
                 }
-            }else if(tokens.size() == 1){
+            }/*else if(tokens.size() == 1){
                 if(activo == true){
                 	if(gst.equals("Salir")){
                         recognizer.deallocate();
@@ -121,7 +125,7 @@ public class Voz extends ResultAdapter {
                        recognizer.resume();
                     }
                 }
-            }
+            }*/
           }
           	recognizer.suspend();
           	recognizer.resume();

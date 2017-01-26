@@ -14,7 +14,7 @@ public <sentence> =
 [<dato9>]
 [<dato10>];
  
-<dato0>=Jacinto;
+<dato0>=Siri;
 <dato1>=Bajar;
 <dato2>=Subir;
 <dato3>=Persiana; 

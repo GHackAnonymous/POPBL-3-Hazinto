@@ -45,7 +45,6 @@ public class Graficos {
 	List<Objeto> listaElectrodomesticos, lista1;
 	int posicion = 4;
 	int posicion1 = 5;
-	int minimo, incremento;
 	Controlador controlador;
     VariablesComunes vc;
 
@@ -61,14 +60,12 @@ public class Graficos {
 		frame.getContentPane().add(crearAll());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
-		minimo = 1;
-		incremento = 5;
 	}
 	public Component crearAll() {
 		panel = new JPanel(new BorderLayout());
 		panel.add(crearPanelIzda(),BorderLayout.WEST);
 		panel.add(crearPanelDcha(),BorderLayout.CENTER);
-		panel.add(crearToolBar(),BorderLayout.NORTH);
+		//panel.add(crearToolBar(),BorderLayout.NORTH);
 		//System.out.println(listaElectrodomesticos.get(1).getHeight() + "/" + listaElectrodomesticos.get(1).getWidth());
 		return panel;
 	}
@@ -94,7 +91,7 @@ public class Graficos {
 		
 		return listaElectrodomesticos;
 	}
-	private JToolBar crearToolBar() {
+	/*private JToolBar crearToolBar() {
 		JToolBar toolBar = new JToolBar(); // la barra de herramientas
 		toolBar.setBorder(BorderFactory.createRaisedBevelBorder());
 		JButton boton;
@@ -130,7 +127,7 @@ public class Graficos {
 		
 		
 		return toolBar;
-	}
+	}*/
 	public List pasarListaDr(){
 		lista1.clear();
 		int kont = 0;
